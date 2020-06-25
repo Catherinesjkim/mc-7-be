@@ -6,7 +6,7 @@ const helmet = require("helmet");
 const authenticate = require("../auth/authenticate-middleware");
 const authRouter = require("../auth/auth-router");
 const usersRouter = require("../users/users-router")
-// const strainsRouter = require("../strains/strains-router");
+const strainsRouter = require("../strains/strains-router");
 
 const server = express();
 
@@ -17,7 +17,7 @@ server.use('/api', apiRouter);
 
 server.use("/api/auth", authRouter);
 server.use("/api/users", authenticate, usersRouter);
-// server.use("/api/strains", authenticate, strainsRouter);
+server.use("/api/strains", strainsRouter);
 
 // Worked on Insomnia
 server.get("/", (req, res) => {
