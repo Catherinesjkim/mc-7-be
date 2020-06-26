@@ -4,8 +4,8 @@ const db = require("../database/dbConfig")
 
 describe("usersRouter", function() {
   describe("environment", function() {
-    it("should set environment to testing", functio() {
-      expect(process.env.DB_ENV).toBE("testing")
+    it("should set environment to testing", function() {
+      expect(process.env.DB_ENV).toBe("testing")
     })
   })
 
@@ -34,14 +34,14 @@ describe("usersRouter", function() {
 })
 
 describe("PUT /:id", function() {
-  const username = "justin@gmail.com"
+  const email = "justin@gmail.com"
   const password = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJ1c2VybmFtZSI6Ikp1c3RpbiIsImlhdCI6MTU5Mjc2NTM2MiwiZXhwIjoxNTkyODUxNzYyfQ.4yIxPqDGtXP22FLkLFN_BpaXbpI4DnFnFiICEhjdyrs"
   const username = "Justin"
 
   it("should edit a user", function() {
     request(usersRouter)
       .post("/login")
-      .send({ username, password })
+      .send({ email, password, username })
       .then(res => {
         const token = res.body.token;
 
@@ -58,7 +58,7 @@ describe("PUT /:id", function() {
 describe("DELETE /:id", function() {
   const email = "justin@gmail.com"
   const password = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJ1c2VybmFtZSI6Ikp1c3RpbiIsImlhdCI6MTU5Mjc2NTM2MiwiZXhwIjoxNTkyODUxNzYyfQ.4yIxPqDGtXP22FLkLFN_BpaXbpI4DnFnFiICEhjdyrs"
-  const = username = "Justin"
+  const username = "Justin"
 
   it("should delete a user", function() {
     request(usersRouter)

@@ -17,7 +17,7 @@ server.use('/api', apiRouter);
 
 server.use("/api/auth", authRouter);
 server.use("/api/users", authenticate, usersRouter);
-server.use("/api/strains", strainsRouter);
+server.use("/api/strains", strainsRouter); // add authenticate after testing DS API endpoint with key value pair
 
 // Worked on Insomnia
 server.get("/", (req, res) => {
